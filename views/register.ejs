@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beatz-Register</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Righteous&display=swap');
+</style>    
+<body class="main">
+  <!-- Preloader -->
+  <div class="preloader">
+    <svg viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path class="big-circle" d="M101 51C101 78.6142 78.6142 101 51 101C23.3858 101 1 78.6142 1 51" stroke="#252525" stroke-width="2"/>
+			<path class="small-circle" d="M91 51C91 28.9086 73.0914 11 51 11C28.9086 11 11 28.9086 11 51" stroke="#252525" stroke-width="2"/>
+		</svg>
+  </div>
+<!-- for display after the preloader -->
+  <div class="page">
+    <!-- Section: Design Block -->
+<section class="background-radial-gradient overflow-hidden">
+   <!-- Navbar -->
+   <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <img src="logo.png" alt="" width="100">
+        <span class="fs-4" style="font-family:Righteous ; color: white;">beatz</span>
+      </a>
+
+      <ul class="nav text-white">
+        <li class="nav-item"><a href="/home" class="nav-link" style="color: white;">Home</a></li>
+        <li class="nav-item"><a href="/profile" class="nav-link" style="color: rgb(206, 206, 206);">Profile</a></li>
+        <li class="nav-item"><a href="/" class="nav-link" style="color: rgb(206, 206, 206);">Login</a></li>
+      </ul>
+    </header>
+  </div>
+  <!-- Navbar Closed -->
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+      <div class="row gx-lg-5 align-items-center mb-5">
+        <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+          <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%);">
+          "Unlock the melody. <br />
+            <span style="color: hsl(218, 81%, 75%)">Join us today"</span>
+          </h1>
+          <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+            "Register now for an enhanced music experience and seamless download options at your fingertips."
+          </p>
+        </div>
+  
+        <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+          <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+          <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+  
+          <div class="card bg-glass" style="border-radius: 20px;">
+            <div class="card-body px-4 pt-4 px-md-5">
+              <form action="/register" method="post">
+                <div class="text-center mb-4"> <!-- Added text-center class and mb-4 for margin bottom -->
+                  <img src="logo.png" alt="" width="100">
+                  <div class="fs-4" style="font-family: Righteous; color: white;">beatz</div>
+                </div>
+                <div class="row">
+                  <!-- Date of Birth input -->
+                  <div class="col-md-7 mb-4">
+                    <label class="form-label text-white">Firstname</label>
+                    <input type="text" name="firstname" class="form-control rounded-3" style="background-color: #ffffff6b; border: none; color: white;" />
+                  </div>
+                  <!-- Gender input -->
+                  <div class="col-md-5 mb-4">
+                    <label class="form-label text-white">Lastname</label>
+                    <input type="text" name="lastname" class="form-control rounded-3" style="background-color: #ffffff6b; border: none; color: white;" />
+                  </div>
+                </div>
+                <div class="row">
+                  <!-- Date of Birth input -->
+                  <div class="col-md-6 mb-4">
+                    <label class="form-label text-white">Email Id</label>
+                    <input type="text" name="email" class="form-control rounded-3" style="background-color: #ffffff6b; border: none; color: white;" />
+                  </div>
+                  <!-- Gender input -->
+                  <div class="col-md-6 mb-4">
+                    <label class="form-label text-white">Password</label>
+                    <input type="password" name="password" class="form-control rounded-3" style="background-color: #ffffff6b; border: none; color: white;" />
+                  </div>
+                </div>
+                <div class="row">
+                  <!-- Date of Birth input -->
+                  <div class="col-md-7 mb-4">
+                      <label class="form-label text-white">Date of Birth</label>
+                      <input type="date" name="dob" class="form-control rounded-3" style="background-color: #ffffff6b; border: none; color: white;" />
+                  </div>
+                  <!-- Gender selection -->
+                  <div class="col-md-5 mb-4">
+                      <label class="form-label text-white">Gender</label>
+                      <select name="gender" class="form-select rounded-3" style="background-color: #ffffff6b; border: none; color: white;">
+                          <option value="" selected disabled>Select Gender</option>
+                          <option value="male" class="text-dark">Male</option>
+                          <option value="female" class="text-dark">Female</option>
+                          <option value="other" class="text-dark">Other</option>
+                      </select>
+                  </div>
+                </div>
+              
+                <!-- Submit button -->
+                <div class="text-center">
+                    <input type="submit" class="btn btn-block mb-4 rounded-pill" style="color: rgb(218, 200, 233); border: none; background-image: linear-gradient(to left, #44006b, #ad1fff);">
+                </div>
+                
+                <!-- Register buttons -->
+                <div class="text-center">
+                  <p class="text-white">or login now:</p>  
+                  <a href="/" class="btn rounded-pill px-3">
+                    <i class="bi bi-box-arrow-in-right" style="color: #44006b;"></i>
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top text-white">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+          <img src="logo.png" alt="" width="100">
+        </a>
+        <span class="mb-3 mb-md-0 text-white">&copy; 2024 beatz.Inc</span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <i class="bi bi-twitter-x mx-2"></i>
+        <i class="bi bi-instagram mx-2"></i>
+        <i class="bi bi-facebook mx-2"></i>
+      </ul>
+    </footer>
+  </div>
+<!-- Footer closed-->
+  </section>
+  <!-- Section: Design Block -->
+
+  </div>
+  <script>
+    window.addEventListener("load", function () {
+    const preloader = document.querySelector(".preloader");
+    const page = document.querySelector(".page");
+    
+    setTimeout(function () {
+      preloader.style.display = "none";
+      page.style.display = "block";
+    }, 1000); // Replace 2000 with the desired delay in milliseconds
+  });
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

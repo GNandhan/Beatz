@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beatz-Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Righteous&display=swap');
+    /* CSS */
+::placeholder {
+  color: grey;
+}
+
+</style>    
+<body class="main">
+  <!-- Preloader -->
+  <div class="preloader">
+    <svg viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path class="big-circle" d="M101 51C101 78.6142 78.6142 101 51 101C23.3858 101 1 78.6142 1 51" stroke="#252525" stroke-width="2"/>
+			<path class="small-circle" d="M91 51C91 28.9086 73.0914 11 51 11C28.9086 11 11 28.9086 11 51" stroke="#252525" stroke-width="2"/>
+		</svg>
+  </div>
+<!-- for display after the preloader -->
+  <div class="page">
+    <!-- Section: Design Block -->
+<section class="background-radial-gradient overflow-hidden">
+   <!-- Navbar -->
+   <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <img src="logo.png" alt="" width="100">
+        <span class="fs-4" style="font-family:Righteous ; color: white;">beatz</span>
+      </a>
+
+      <ul class="nav text-white">
+        <li class="nav-item"><a href="/home" class="nav-link" style="color: white;">Home</a></li>
+        <li class="nav-item"><a href="/profile" class="nav-link" style="color: rgb(206, 206, 206);">Profile</a></li>
+        <li class="nav-item"><a href="/" class="nav-link" style="color: rgb(206, 206, 206);">Logout</a></li>
+      </ul>
+    </header>
+  </div>
+  <!-- Navbar Closed -->
+  <div class="container mt-5 mb-2">
+    <div class="row">
+      <div class="col-lg">
+        <div class="fs-2" style="font-family:Righteous ; color: white;">Hi, <%= userName %></div>
+        <div class="fs-3 opacity-70 my-5"><span style="color: hsl(220, 100%, 90%);"> "Explore endless tunes on our website, </span><br>
+          <span style="color: hsl(218, 39%, 70%);">&nbsp;effortlessly search and download your favorite songs</span> <br>
+          <span style="color: hsl(218, 23%, 56%);">&nbsp;from YouTube with just a click."</span></div>
+      </div>
+    </div>
+  </div>
+   
+<!-- Search Bar -->
+<div class="container mb-5">
+  <div class="row justify-content-start mb-5">
+    <div class="col-md-5">
+      <div class="fs-2" style="font-family: Righteous; color: hsl(220, 100%, 90%);">Youtube Search</div>
+      <div class="input-group">
+        <span class="input-group-text p-3 border-0" style="background-color: hsl(215, 32%, 31%); border-radius: 25px 0px 0px 25px; color: white;"><i class="bi bi-search"></i></span>
+        <input type="text" id="searchInput" class="form-control border-0 " style="background-color: hsl(215, 32%, 31%); border-radius: 0px 25px 25px 0px; color: white;" placeholder="Search for songs..." placeholder-style="color: #ffffff80;">
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3 ">
+    <div class="col-md-6">
+      <div id="searchResults"></div>
+    </div>
+  </div>
+</div>
+<!-- Search bar Closed -->
+
+
+
+<!-- Add a new search bar for Spotify -->
+<!-- <div class="container my-3 mb-5">
+  <div class="row justify-content-start mb-5">
+    <div class="col-md-5">
+      <div class="fs-2" style="font-family: Righteous; color: hsl(220, 100%, 90%);">Spotify Search</div>
+      <div class="input-group">
+        <span class="input-group-text p-3 border-0" style="background-color: hsl(215, 32%, 31%); border-radius: 25px 0px 0px 25px; color: white;"><i class="bi bi-search"></i></span>
+        <input type="text" id="spotifySearchInput" class="form-control border-0 " style="background-color: hsl(215, 32%, 31%); border-radius: 0px 25px 25px 0px; color: white;" placeholder="Search for songs on Spotify..." placeholder-style="color: #ffffff80;">
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3 ">
+    <div class="col-md-6">
+      <div id="spotifySearchResults"></div>
+    </div>
+  </div>
+</div> -->
+<!-- Spotify search bar -->
+
+<div class="container mb-5">
+  <div class="row align-items-center mb-5">
+    <div class="col-lg col-md-12 col-sm-12 col-12">
+      <!-- <img src="bg1.jpg" alt="" width="80%" class="rounded-4 opacity-70"> -->
+      
+		<div class="socket">
+			<div class="gel center-gel">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c1 r1">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c2 r1">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c3 r1">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c4 r1">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c5 r1">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c6 r1">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			
+			<div class="gel c7 r2">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			
+			<div class="gel c8 r2">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c9 r2">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c10 r2">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c11 r2">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c12 r2">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c13 r2">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c14 r2">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c15 r2">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c16 r2">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c17 r2">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c18 r2">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c19 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c20 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c21 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c22 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c23 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c24 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c25 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c26 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c28 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c29 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c30 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c31 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c32 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c33 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c34 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c35 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c36 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			<div class="gel c37 r3">
+				<div class="hex-brick h1"></div>
+				<div class="hex-brick h2"></div>
+				<div class="hex-brick h3"></div>
+			</div>
+			
+		</div>
+	
+    </div>
+    <div class="col-lg-9 col-md-12 col-sm-12 col-12">
+      <div style="color: hsl(218, 39%, 70%);" class="text-end">
+        "Welcome to our music haven! Our website offers a seamless experience for music lovers worldwide. With our intuitive interface, you can effortlessly search for any song on YouTube without leaving our platform. Whether you're into the latest chart-toppers or timeless classics, our extensive library has something for everyone. But we don't stop there. We understand the joy of having your favorite tracks available offline, so we've made downloading a breeze. Simply find your desired song, hit the download button, and voila! It's yours to enjoy anytime, anywhere."
+      </div><br>
+      <div style="color: hsl(218, 39%, 70%);" class="text-end">
+        Say goodbye to the hassle of searching multiple platforms or dealing with complicated download processes. Our website streamlines everything, so you can focus on what matters most – enjoying great music. Join us today and experience the ultimate convenience in music discovery and downloads. It's time to take your listening experience to the next level!".
+      </div>
+    </div>
+  </div>
+</div>
+
+      <!-- Footer -->
+      <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top text-white">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+              <img src="logo.png" alt="" width="100">
+            </a>
+            <span class="mb-3 mb-md-0 text-white">&copy; 2024 beatz.Inc</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <i class="bi bi-twitter-x mx-2"></i>
+            <i class="bi bi-instagram mx-2"></i>
+            <i class="bi bi-facebook mx-2"></i>
+          </ul>
+        </footer>
+      </div>
+    <!-- Footer closed-->
+      </section>
+      <!-- Section: Design Block -->
+    
+      </div>
+      <script>
+        window.addEventListener("load", function () {
+        const preloader = document.querySelector(".preloader");
+        const page = document.querySelector(".page");
+        
+        setTimeout(function () {
+          preloader.style.display = "none";
+          page.style.display = "block";
+        }, 1000); // Replace 2000 with the desired delay in milliseconds
+      });
+      </script>
+
+<script>
+  // Function to fetch YouTube data based on search query
+async function searchYouTube(query) {
+  const apiKey = 'AIzaSyDQh5o52I40EFz7GAMADbfHQuhhVrFlgTc'; // Replace with your YouTube API key
+  const maxResults = 5; // Maximum number of results to display
+
+  const response = await fetch(`https://www.googleapis.com/youtube/v3/search?q=${query}&key=${apiKey}&part=snippet&type=video&maxResults=${maxResults}`);
+  const data = await response.json();
+
+  return data.items;
+}
+
+// Function to display search results
+function displaySearchResults(results) {
+  const searchResultsDiv = document.getElementById('searchResults');
+  searchResultsDiv.innerHTML = ''; // Clear previous results
+
+  results.forEach(result => {
+    const videoId = result.id.videoId;
+    const videoTitle = result.snippet.title;
+    const videoThumbnail = result.snippet.thumbnails.default.url;
+
+    const videoElement = `
+      <div class="card mb-3 rounded-4" style="background-color: hsl(220, 100%, 90%);">
+        <div class="row g-0 p-2 align-items-center">
+          <div class="col-md-4">
+            <img src="${videoThumbnail}" class="img-fluid rounded-4" alt="Thumbnail">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">${videoTitle}</h5>
+			  <a href="https://www.youtube.com/watch?v=${videoId}" class="btn rounded-pill px-3 py-1 btn-outline-primary" target="_blank">Watch  <i class="bi bi-youtube"></i></a>
+			  <a href="/download/${videoId}" class="btn rounded-pill px-3 py-1 btn-outline-primary" download>Download  <i class="bi bi-cloud-arrow-down-fill"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    searchResultsDiv.innerHTML += videoElement;
+  });
+}
+
+// Event listener for search input
+document.getElementById('searchInput').addEventListener('input', async function() {
+  const searchQuery = this.value.trim();
+
+  if (searchQuery !== '') {
+    const results = await searchYouTube(searchQuery);
+    displaySearchResults(results);
+  }
+});
+
+</script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </body>
+    </html>

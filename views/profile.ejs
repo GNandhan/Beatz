@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beatz-Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Righteous&display=swap');
+</style>    
+<body class="main">
+<!-- Preloader -->
+  <div class="preloader">
+    <svg viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path class="big-circle" d="M101 51C101 78.6142 78.6142 101 51 101C23.3858 101 1 78.6142 1 51" stroke="#252525" stroke-width="2"/>
+			<path class="small-circle" d="M91 51C91 28.9086 73.0914 11 51 11C28.9086 11 11 28.9086 11 51" stroke="#252525" stroke-width="2"/>
+		</svg>
+  </div>
+<!-- for display after the preloader -->
+  <div class="page">
+    <!-- Section: Design Block -->
+<section class="background-radial-gradient overflow-hidden">
+   <!-- Navbar -->
+   <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <img src="logo.png" alt="" width="100">
+        <span class="fs-4" style="font-family:Righteous ; color: white;">beatz</span>
+      </a>
+
+      <ul class="nav text-white">
+        <li class="nav-item"><a href="/home" class="nav-link" style="color: white;">Home</a></li>
+        <li class="nav-item"><a href="/profile" class="nav-link" style="color: rgb(206, 206, 206);">Profile</a></li>
+        <li class="nav-item"><a href="/" class="nav-link" style="color: rgb(206, 206, 206);">Login</a></li>
+      </ul>
+    </header>
+  </div>
+  <!-- Navbar Closed -->
+  <div class="container mt-5 mb-2">
+    <div class="row">
+        <div class="col-lg">
+            <div class="fs-2" style="font-family:Righteous ; color: white;">Hi, <%= userName %></div>
+            <div class="fs-4 mt-5" style="color: hsl(220, 100%, 90%);">Recent Searches</div>
+        </div>
+    </div>
+  </div>
+
+ <!-- Footer -->
+ <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top text-white">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+          <img src="logo.png" alt="" width="100">
+        </a>
+        <span class="mb-3 mb-md-0 text-white">&copy; 2024 beatz.Inc</span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <i class="bi bi-twitter-x mx-2"></i>
+        <i class="bi bi-instagram mx-2"></i>
+        <i class="bi bi-facebook mx-2"></i>
+      </ul>
+    </footer>
+  </div>
+  <!-- Footer closed-->
+    </section>
+    <!-- Section: Design Block -->
+  
+    </div>
+  
+    <script>
+      window.addEventListener("load", function () {
+      const preloader = document.querySelector(".preloader");
+      const page = document.querySelector(".page");
+      
+      setTimeout(function () {
+        preloader.style.display = "none";
+        page.style.display = "block";
+      }, 1000); // Replace 2000 with the desired delay in milliseconds
+    });
+    </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+  </html>

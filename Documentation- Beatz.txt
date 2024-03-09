@@ -1,0 +1,7 @@
+PROJECT
+Music bot
+
+Name: Beatz
+Front-end: Html, Css, Bootstrap, Javascript
+Back-end: Php
+Database: Mysql 
