@@ -112,17 +112,15 @@ app.post('/login', encoder, function (req, res) {
 //route for the home page
 app.get('/home', requireAuth, (req, res) => {
     const user = req.session.user;
-    const userName = user ? user.user_firstname : ''; // Get the user's first name
+    const userName = user ? user.user_firstname : '';
+    const userLame = user ? user.user_lastname : '';
+    const userEmail = user ? user.user_email : '';
+    const userDob = user ? user.user_dob : '';
+    const userGender = user ? user.user_gender : '';
 
-    res.render('index', { userName }); // Pass userName to the template
+    res.render('index', { userName, userLame, userEmail, userDob, userGender }); 
 });
-// Route handler for the profile page
-app.get('/profile', requireAuth, (req, res) => {
-    const user = req.session.user; // Get the user data from the session
-    const userName = user ? user.user_firstname : ''; // Get the user's first name
 
-    res.render('profile', { userName }); // Pass userName to the template
-});
 
 // --------------------------------------------------------------------------------------------
 
