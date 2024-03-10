@@ -11,8 +11,6 @@ const encoder = bodyParser.urlencoded();
 const app = express();
 const port = 4300;
 
-
-
 // Set up sessions
 app.use(
     session({
@@ -82,7 +80,7 @@ app.post('/register', encoder, function (req, res) {
             return res.status(500).send("Error registering user.");
         }
         console.log("User registered successfully!");
-        res.redirect('/'); // Redirect to login page after successful registration
+        res.redirect('/?success=1'); // Redirect to login page after successful registration
     });
 });
 
@@ -99,23 +97,18 @@ app.post('/login', encoder, function (req, res) {
         }
         // If user exists, redirect to home page
         if (results.length > 0) {
-             // Save user data in session upon successful login
+            // Save user data in session upon successful login
             req.session.user = results[0];
             console.log("User logged in successfully!");
-            res.redirect('/home');
+            res.redirect('/home'); // changed success value to 1
         } else {
             // If user does not exist or credentials are incorrect, render an error message or redirect back to login page
             console.log("Invalid email or password");
             res.redirect('/'); 
         }
     });
-    });
-    app.get("/logout", (req, res) => {
-        // Destroy the session on logout
-        req.session.destroy(() => {
-          res.redirect("/");
-        });
-    });
+});
+
 //route for the home page
 app.get('/home', requireAuth, (req, res) => {
     const user = req.session.user;
@@ -132,8 +125,6 @@ app.get('/profile', requireAuth, (req, res) => {
 });
 
 // --------------------------------------------------------------------------------------------
-
-
 
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
