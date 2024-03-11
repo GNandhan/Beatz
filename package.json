@@ -21,6 +21,7 @@
     "mysql": "^2.18.1",
     "node-fetch": "^3.3.2",
     "spotify-web-api-node": "^5.0.2",
+    "youtube-dl-exec": "^2.5.7",
     "ytdl-core": "^4.11.5"
   }
 }

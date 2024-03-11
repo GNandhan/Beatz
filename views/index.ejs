@@ -458,7 +458,7 @@
 <script>
   // Function to fetch YouTube data based on search query
 async function searchYouTube(query) {
-  const apiKey = 'AIzaSyDQh5o52I40EFz7GAMADbfHQuhhVrFlgTc'; // Replace with your YouTube API key
+  const apiKey = 'AIzaSyAlIcowuJhzmyTCyonY5tMYwoIsqe1p1YQ'; // Replace with your YouTube API key
   const maxResults = 5; // Maximum number of results to display
 
   const response = await fetch(`https://www.googleapis.com/youtube/v3/search?q=${query}&key=${apiKey}&part=snippet&type=video&maxResults=${maxResults}`);
@@ -510,31 +510,6 @@ document.getElementById('searchInput').addEventListener('input', async function(
 });
 
 // ...
-// Function to handle play button click
-function handlePlayButtonClick(event) {
-  const card = event.target.closest('.card'); // Find the parent card
-  if (!card) return;
-
-  // Extract album details from the card
-  const albumImage = card.querySelector('img').src;
-  const songName = card.querySelector('.card-title').textContent;
-  const creatorName = card.querySelector('.creator-name').textContent;
-
-  // Update music player with album details
-  document.getElementById('albumImage').src = albumImage;
-  document.getElementById('songName').textContent = songName;
-  document.getElementById('creatorName').textContent = creatorName;
-
-  // Implement functionality to play the selected song
-  // This part will depend on how you're playing songs on your website
-}
-
-// Event listener for play buttons
-document.addEventListener('click', function(event) {
-  if (event.target.classList.contains('play-btn')) {
-    handlePlayButtonClick(event);
-  }
-});
 
 </script>
   

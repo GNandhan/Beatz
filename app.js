@@ -6,6 +6,7 @@ const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const encoder = bodyParser.urlencoded();
 // const axios = require("axios");
+const ytdl = require('ytdl-core');
 
 // Create Express app
 const app = express();
@@ -121,6 +122,23 @@ app.get('/home', requireAuth, (req, res) => {
     res.render('index', { userName, userLame, userEmail, userDob, userGender }); 
 });
 
+// Route to handle video download
+app.get('/download/:videoId', requireAuth, async (req, res) => {
+    const videoId = req.params.videoId;
+
+    // Set up headers for downloading the file
+    res.setHeader('Content-Disposition', 'attachment; filename="audio.mp3"');
+    res.setHeader('Content-Type', 'audio/mpeg');
+
+    // Use ytdl-core to get the video stream and pipe it to the response
+    try {
+        ytdl(`https://www.youtube.com/watch?v=${videoId}`, { filter: 'audioonly', quality: 'highestaudio' })
+            .pipe(res);
+    } catch (error) {
+        console.error('Error downloading video:', error.message);
+        res.status(500).send('Error downloading video.');
+    }
+});
 
 // --------------------------------------------------------------------------------------------
 
