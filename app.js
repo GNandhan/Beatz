@@ -61,10 +61,10 @@
 // app.get('/home', requireAuth, (req, res) => {
 //     res.render('index');
 // });
-//route for the home page
-// app.get('/profile', requireAuth, (req, res) => {
-//     res.render('profile');
-// });
+// route for the home page
+app.get('/profile', requireAuth, (req, res) => {
+    res.render('profile');
+});
 
 // Route to handle form submission and insert data into database
 app.post('/register', encoder, function (req, res) {
@@ -123,7 +123,6 @@ app.get('/home', requireAuth, (req, res) => {
     res.render('index', { userName, userLame, userEmail, userDob, userGender }); 
 });
 
-
 // Route to handle video download
 app.get('/download/:videoId', requireAuth, async (req, res) => {
     const videoId = req.params.videoId;
@@ -137,6 +136,7 @@ app.get('/download/:videoId', requireAuth, async (req, res) => {
         res.setHeader('Content-Disposition', `attachment; filename="${videoTitle}.mp3"`);
         res.setHeader('Content-Type', 'audio/mpeg');
 
+
         // Use ytdl-core to get the video stream and pipe it to the response
         ytdl(`https://www.youtube.com/watch?v=${videoId}`, { filter: 'audioonly', quality: 'highestaudio' })
             .pipe(res);
@@ -145,7 +145,6 @@ app.get('/download/:videoId', requireAuth, async (req, res) => {
         res.status(500).send('Error downloading video.');
     }
 });
-
 
 // --------------------------------------------------------------------------------------------
 
