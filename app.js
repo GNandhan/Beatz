@@ -1,61 +1,61 @@
-// Import required modules
-const express = require("express");
-const session = require("express-session");
-const ejs = require("ejs");
-const mysql = require("mysql");
-const bodyParser = require("body-parser");
-const encoder = bodyParser.urlencoded();
-// const axios = require("axios");
-const ytdl = require('ytdl-core');
-const fs = require('fs');
+    // Import required modules
+    const express = require("express");
+    const session = require("express-session");
+    const ejs = require("ejs");
+    const mysql = require("mysql");
+    const bodyParser = require("body-parser");
+    const encoder = bodyParser.urlencoded();
+    // const axios = require("axios");
+    const ytdl = require('ytdl-core');
+    const fs = require('fs');
 
-// Create Express app
-const app = express();
-const port = 4300;
+    // Create Express app
+    const app = express();
+    const port = 4300;
 
-// Set up sessions
-app.use(
-    session({
-      secret: "beatz30",
-      resave: true,
-      saveUninitialized: true,
-    })
-  );
+    // Set up sessions
+    app.use(
+        session({
+        secret: "beatz30",
+        resave: true,
+        saveUninitialized: true,
+        })
+    );
 
-// Set view engine and static folder
-app.set('view engine', 'ejs');
-app.use(express.static('public'));
+    // Set view engine and static folder
+    app.set('view engine', 'ejs');
+    app.use(express.static('public'));
 
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "beats"
-});
-connection.connect(function (error) {
-    if (error) {
-        console.error("Error connecting to database:", error.message);
-    } else {
-        console.log("Connected to the database successfully!");
-    }
-});
+    const connection = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "",
+        database: "beats"
+    });
+    connection.connect(function (error) {
+        if (error) {
+            console.error("Error connecting to database:", error.message);
+        } else {
+            console.log("Connected to the database successfully!");
+        }
+    });
 
-// Middleware to check if the user is authenticated
-const requireAuth = (req, res, next) => {
-    if (!req.session.user) {
-      // Redirect to login if the user is not authenticated
-      return res.redirect("/");
-    }
-    next();
-  };
+    // Middleware to check if the user is authenticated
+    const requireAuth = (req, res, next) => {
+        if (!req.session.user) {
+        // Redirect to login if the user is not authenticated
+        return res.redirect("/");
+        }
+        next();
+    };
 
-//route for the login page
-app.get('/', (req, res) => {
-    res.render('login');
-});
-//route for the registration page
-app.get('/reg', (req, res) => {
-    res.render('register');
+    //route for the login page
+    app.get('/', (req, res) => {
+        res.render('login');
+    });
+    //route for the registration page
+    app.get('/reg', (req, res) => {
+        res.render('register');
 });
 //route for the home page
 // app.get('/home', requireAuth, (req, res) => {
@@ -123,17 +123,18 @@ app.get('/home', requireAuth, (req, res) => {
     res.render('index', { userName, userLame, userEmail, userDob, userGender }); 
 });
 
+
 // Route to handle video download
 app.get('/download/:videoId', requireAuth, async (req, res) => {
     const videoId = req.params.videoId;
 
     try {
-        // Fetch metadata from YouTube to get the album name
+        // Fetch metadata from YouTube to get the video title
         const info = await ytdl.getInfo(videoId);
-        const album = info.videoDetails.media.album || 'Unknown'; // Default to 'Unknown' if album name is not available
-
+        const videoTitle = info.videoDetails.title;
+        
         // Set up headers for downloading the file
-        res.setHeader('Content-Disposition', `attachment; filename="${album}.mp3"`);
+        res.setHeader('Content-Disposition', `attachment; filename="${videoTitle}.mp3"`);
         res.setHeader('Content-Type', 'audio/mpeg');
 
         // Use ytdl-core to get the video stream and pipe it to the response
